@@ -9,35 +9,33 @@ body {
   line-height: 20px;
 }
 
-div.wrapper {
+.page-header .wrapper {
   max-width: 1020px;
   margin: 0 auto;
 }
 
-h1.visually-hidden {
+.visually-hidden {
   position: absolute;
   
-  display: block;
   height: 1px;
   width: 1px;
   padding: 0;
   overflow: hidden;
-
-  border: 0;
 }
 
 .page-header {
   background-color: #323232;
 }
 
-nav.main-nav {
+.page-header nav {
   box-sizing: border-box;
 
   width: 371px;
   margin: 0 auto;
+  height: 63px;
 }
 
-ul.nav-items {
+.main-nav ul {
   position: relative;
   
   display: flex;
@@ -48,12 +46,13 @@ ul.nav-items {
   list-style: none;
 }
 
-ul.nav-items::after {
+.main-nav ul::after {
   content: "";
 
   position: absolute;
   top: 62px;
   left: 140px;
+  z-index: -1;
 
   width: 0;
   height: 0;
@@ -62,12 +61,41 @@ ul.nav-items::after {
   border-color: #323232 transparent transparent transparent;
 }
 
-li.nav-item:nth-child(2) {
-  margin-right: 60px;
+.nav-item a:hover {
+  color: #2eb398;
+  
 }
 
-li.nav-item:nth-child(3) {
-  margin-left: 60px;
+.nav-item a.current {
+  color: #2eb398;
+}
+
+.nav-items li {
+  position: relative;
+}
+
+.nav-items li:first-child::after {
+  content: ".";
+  position: absolute;
+  top: 23px;
+  left: 65px;
+
+  color: #494e62;
+}
+
+.nav-items li:last-child::before {
+  content: ".";
+  position: absolute;
+  top: 23px;
+  left: -13px;
+
+  color: #494e62;
+}
+
+.header-triangle {
+  padding-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .nav-item a {
@@ -81,4 +109,6 @@ li.nav-item:nth-child(3) {
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
+  
+  transition: color 0.3s;
 }
